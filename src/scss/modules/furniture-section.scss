@@ -1,0 +1,70 @@
+.furniture {
+    margin: 44px 0 0;
+    overflow: hidden;
+    &__header {
+        margin: 0 0 -24px;
+        text-align: center
+    }
+    &__subtitle {
+        color: $blackText;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0 0 8px;
+    }
+    &__title {
+
+    }
+    &__items {
+        position: relative;
+        @media (any-hover: none) {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 16px;
+        @media (any-hover: hover) {
+            justify-content: center;
+        }
+    }
+    &__row {
+        display: flex;
+        column-gap: 16px;
+        &_left-top {
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        &_left-bottom {
+            align-items: flex-start;
+            justify-content: flex-end;
+        }
+        &_right-top {
+            align-items: flex-end;
+        }
+        &_right-bottom {
+            align-items: flex-start;
+        }
+    }
+    &__item {
+        @media (any-hover: hover) {
+            user-select: none;
+            img {
+                filter: grayscale(1);
+                transition: all 0.8s ease 0s;
+            }
+            &:hover {
+                img {
+                    filter: grayscale(0)
+                }
+            }
+        }
+    }
+    @include phone {
+        margin: 30px 0 0
+    }
+}

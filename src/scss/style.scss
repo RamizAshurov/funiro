@@ -1,0 +1,14 @@
+@import "base/vars.scss";
+@import "base/_fonts.scss";
+@import "base/_icons.scss";
+@import "mixins/breakpoints.scss";
+@import "base.scss";
+
+@import "modules/header.scss";
+@import "modules/footer.scss";
+@import "modules/main-slider.scss";
+@import "modules/advantages-section.scss";
+@import "modules/our-products-section.scss";
+@import "modules/rooms-section.scss";
+@import "modules/tips.scss";
+@import "modules/furniture-section.scss"

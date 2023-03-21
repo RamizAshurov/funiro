@@ -1,0 +1,193 @@
+.rooms {
+    background-color: $lightOrange;
+    margin: 45px 0 0;
+    padding: 45px 0;
+    overflow-x: hidden;
+    &__container {
+        display: flex;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        flex: 0 0 36.3%;
+        margin: 0 7% 0 0;
+        position: relative;
+        z-index: 5;
+    }
+    &__title {
+        text-align: left;
+    }
+    &__text {
+        color: $blackText;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    &__button {
+        margin: 24px 0 0;
+        width: 176px;
+        text-align: center;
+    }
+    &__items {
+        height: 582px;
+    }
+    &__slider {
+        position: relative;
+        flex: 1 1 auto;
+        min-width: 0;
+        &::before {
+            background-color: $lightOrange;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 100%;
+            width: 100vw;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .swiper {
+            display: block;
+        }
+        .swiper-arrows {
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            margin: 0;
+            position: absolute;
+            top: calc(50% - 24px);
+            left: -24px;
+            width: calc(100% + 48px);
+            z-index: 5;
+        }
+        .swiper-arrow {
+            pointer-events: auto
+        }
+        .swiper-pagination {
+            position: absolute;
+            left: 396px;
+            bottom: 40px;
+            text-align: left;
+        }
+    }
+    @include desktop {
+        &__slider {
+            margin: 30px 0 0;
+            .swiper-arrows {
+                left: 24px;
+                width: calc(100% - 48px)
+            }
+        }
+    }
+    @include tablet {
+        &__container {
+            display: block
+        }
+        &__content { margin: 0; }
+        &__slider {
+            .swiper-arrows {
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+    @include gap {
+        &__slider {
+            .swiper-wrapper {
+                height: 450px;
+            }
+            .swiper-arrows {
+                display: none;
+            }
+            .swiper-pagination {
+                position: static;
+                margin: 15px 0 0;
+                text-align: center;
+            }
+        }
+    }
+    @include phone {
+        padding: 20px 0;
+        &__slider {
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+    }
+}
+
+.room {
+    position: relative;
+    width: 372px;
+    height: 83%;
+    transition: height 0.3s ease 0s;
+    &__img {
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            vertical-align: top;
+        }
+    }
+    &__content {
+        background-color: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        left: 24px;
+        bottom: 24px;
+        padding: 32px;
+        @supports ((-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))) {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+        }
+    }
+    &__label {
+        display: flex;
+        align-items: center;
+        color: $blackText;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    &__line {
+        border-top: 1px solid $blackText;
+        margin: 0 8px;
+        height: 0;
+        width: 27px;
+    }
+    &__name {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    &__link {
+        background-color: $orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        width: 48px;
+        height: 48px;
+        transition: background-color 0.2s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $darkOrange;
+            }
+        }
+    }
+    @include gap {
+        height: 100%;
+    }
+    @include phone {
+        width: 100%;
+    }
+}
+
+
+.swiper-slide-active {
+    height: 100%;
+}

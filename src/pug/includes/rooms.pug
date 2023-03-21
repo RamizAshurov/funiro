@@ -1,0 +1,43 @@
+section.rooms 
+    .rooms__container.container
+        .rooms__content
+            h2.rooms__title.title 50+ Beautiful rooms inspiration
+            .rooms__text Our designer already made a lot of beautiful prototipe of rooms that inspire you
+            a.rooms__button.button.button_filled_orange(href="#") Explore More
+        .rooms__slider 
+            .swiper 
+                .swiper-wrapper.rooms__items 
+                    .swiper-slide.room 
+                        .room__img
+                            img(src="./images/rooms/01.jpg", alt="room")
+                        a.room__content(href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-y="-100%")
+                            .room__label 
+                                span.room__number 01
+                                span.room__line 
+                                span.room__type Bed Room
+                            .room__name Inner Peace
+                            .room__link.icon-arrow-link
+                    .swiper-slide.room 
+                        .room__img
+                            img(src="./images/rooms/02.jpg", alt="room")
+                        a.room__content(href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-y="-100%")
+                            .room__label 
+                                span.room__number 02
+                                span.room__line 
+                                span.room__type Bed Room
+                            .room__name Inner Peace
+                            .room__link.icon-arrow-link
+                    .swiper-slide.room 
+                        .room__img
+                            img(src="./images/rooms/03.jpg", alt="room")
+                        a.room__content(href="#" data-swiper-parallax-opacity="0" data-swiper-parallax-y="-100%")
+                            .room__label 
+                                span.room__number 03
+                                span.room__line 
+                                span.room__type Bed Room
+                            .room__name Inner Peace
+                            .room__link.icon-arrow-link
+                .swiper-pagination
+            .swiper-arrows 
+                    .swiper-button-prev.swiper-arrow.swiper-arrow_color_white.icon-arrow-down
+                    .swiper-button-next.swiper-arrow.swiper-arrow_color_white.icon-arrow-down

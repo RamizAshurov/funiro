@@ -1,0 +1,44 @@
+.advantages {
+    margin: 90px 0 0;
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    @include tablet {
+        margin: 70px 0 0;
+        &__list-item {
+            min-width: 280px
+        }
+    }
+    @include gap {
+        margin: 50px 0 0
+    }
+
+}
+
+.advantage {
+    display: flex;
+    padding: 15px 0;
+    &__icon {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+    }
+    &__name {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    &__text {
+        color: $greyText;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    @include tablet {
+        &__icon {
+            padding: 0 15px 0 0
+        }
+    }
+}

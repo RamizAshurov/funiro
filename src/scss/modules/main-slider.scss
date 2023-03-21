@@ -1,0 +1,236 @@
+.main-slider {
+    background-color: #FCF8F3;
+    overflow: hidden;
+    &__content {
+        display: flex;
+        position: relative;
+        padding: 125px 0 0;
+        &::before {
+            background-color: #F9F1E7;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 364px;
+            width: 100vw;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+    &__card {
+        background-color: rgba(255, 255, 255, 0.9);
+        align-self: flex-start;
+        flex: 0 0 482px;
+        padding: 60px;
+        position: relative;
+        z-index: 2;
+        @supports ((-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))) {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+        }
+    }
+    &__card-title {
+        color: $black;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    &__card-text {
+        color: $greyText;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin: 16px 0 0;
+    }
+    &__card-link {
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        margin: 48px 0 0;
+        padding: 24px 12px;
+    }
+    &__slider {
+        width: calc(100% - 482px);
+        .swiper {
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+            &-wrapper {
+                align-self: flex-end;
+                width: 934px;
+            }
+            &-controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+            }
+            &-arrows {
+                display: flex;
+                margin: 0 0 0 10px
+            }
+            &-button-prev {
+                margin: 0 8px 0 0
+            }
+            &-pagination {
+                text-align: left;
+            }
+            &-slide {
+                position: relative;
+                width: 100% !important;
+                &__img {
+                    height: 623px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                &__content {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    position: absolute;
+                    right: 40px;
+                    bottom: 40px;
+                    padding: 24px;
+                    max-height: 300px;
+                    min-width: 290px;
+                    @supports ((-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))) {
+                        background-color: rgba(255, 255, 255, 0.7);
+                        backdrop-filter: blur(15px);
+                    }
+                }
+                &__content-title {
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                }
+                &__content-text {
+                    color: #616161;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    margin: 4px 0 0;
+                }
+                &__content-link {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    &:before {
+                        color: #000000;
+                        font-size: 14px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            @include tablet {
+                flex-direction: column-reverse;
+                &-wrapper {
+                    width: 100%;
+                }
+                &-slide {
+                    &__content {
+                        display: block;
+                        position: static;
+                        padding: 20px;
+                    }
+                }
+            }
+            @include gap {
+                &-slide {
+                    &__img {
+                        height: 550px
+                    }
+                }
+                &-pagination {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    text-align: center;
+                }
+                &-arrows {
+                    display: none
+                }
+            }
+            @include phone {
+                &-slide {
+                    &__img {
+                        position: relative;
+                        padding-top: 82.5%;
+                        height: 0;
+                        img {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__link {
+        display: none;
+        background-color: $orange;
+        color: $white;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 16px 0 0;
+        padding: 18px 12px;
+        text-align: center;
+        transition: background-color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #966749
+            }
+        }
+    }
+    @include tablet {
+        &__content {
+            flex-direction: column; 
+            padding-top: 90px;
+            &:before {
+                display: none;
+            }
+        }
+        &__card {
+            flex-basis: auto;
+        }
+        &__slider {
+            margin: 0 -20px;
+            width: auto;
+        }
+        &__card {
+            align-self: auto;
+            margin: 0 -20px;
+            padding: 20px;
+        }
+        &__card-title {
+            font-size: 40px;
+        }
+        &__card-text {
+            max-width: 600px;
+        }
+    }
+    @include gap {
+        &__content {
+            padding-top: 60px;
+        }
+        &__card-link {
+            display: none;
+        }
+        &__link {
+            display: block;
+        }
+    }
+    @include phone {
+        &__slider {
+            margin: 0 -16px
+        }
+        &__link {
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    }
+}

@@ -1,0 +1,191 @@
+:root {
+    --animation-duration: 0.3s
+ }
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    color: $black;
+    font-family: "Gilroy", "sans-serif";
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+}
+
+input {
+    border: none;
+    outline: none
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1280px;
+    @include phone {
+        padding: 0 16px
+    }
+}
+
+.title {
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    @include phone {
+        font-size: 32px;
+    }
+}
+
+.button {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 2;
+    padding: 12px 0;
+    transition: all 0.2s ease 0s;
+    &_filled {
+        &_orange {
+            background-color: $orange;
+            color: $white;
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: $darkOrange
+                }
+            }
+        }
+        &_white {
+            background-color: $white;
+            color: $orange;
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: $orange;
+                    color: $white;
+                }
+            }
+        }
+    }
+    &_outlined {
+        border: 1px solid $orange;
+        color: $orange;
+        @media (any-hover: hover) {
+            &:not(&_loading):hover {
+                background-color: $orange;
+                color: $white;
+            }
+        }
+        &_loading {
+            background-color: transparent;
+            border-color:rgba(0, 0, 0, 0.12);
+            color: rgba(0, 0, 0, 0.26);
+            cursor: default;
+        }
+    }
+}
+
+.swiper-pagination {
+    position: static;
+    &-bullet {
+        background-color: transparent;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 27px;
+        height: 27px;
+        &:before {
+            background-color: #D8D8D8;
+            border-radius: 50%;
+            content: "";
+            width: 11px;
+            height: 11px;
+            transition: background-color 0.3s ease 0s;
+        }
+        &:after {
+            border: 1px solid $orange;
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.4);
+            transition: transform 0.3s ease 0s;
+            z-index: -1;
+        }
+        &-active {
+            &:before {
+                background-color: $orange;
+            }
+            &:after {
+                transform: scale(1);
+            }
+        }
+    }
+}
+.swiper-button-prev {
+    &:before {
+        transform: rotate(90deg);
+    }
+}
+
+.swiper-button-next {
+    &:before {
+        transform: rotate(-90deg);
+    }
+}
+
+.swiper-arrow {
+    border-radius: 50%;
+    color: $orange;
+    font-size: 12px;
+    position: static;
+    margin: 0;
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s ease 0s;
+    &::after {
+        content: none;
+    }
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: rgb(232, 159, 113);
+            color: $white
+        }
+    }
+    &_color {
+        &_orange {
+            background-color: rgba(232, 159, 113, 0.3);
+        }
+        &_white {
+            background-color: $white;
+            box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}

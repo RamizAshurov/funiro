@@ -1,0 +1,20 @@
+@mixin pt-sans-regular {
+    font-family: 'PT Sans', 'Arial', 'sans-serif';
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+@mixin pt-sans-regular-italic {
+    font-family: 'PT Sans', 'Arial', 'sans-serif';
+    font-style: italic;
+    font-weight: 400;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+@mixin pt-sans-bold {
+    font-family: 'PT Sans', 'Arial', 'sans-serif';
+    font-style: normal;
+    font-weight: 700;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
