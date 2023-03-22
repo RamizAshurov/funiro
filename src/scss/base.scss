@@ -32,6 +32,10 @@ input {
     outline: none
 }
 
+.body_lock {
+    height: 100%;
+    overflow: hidden;
+}
 .container {
     margin: 0 auto;
     padding: 0 20px;

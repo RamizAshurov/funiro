@@ -51,6 +51,7 @@ window.onload = function() {
     if (targetEl.classList.contains("header__burger")) {
       targetEl.classList.toggle("header__burger_open");
       document.querySelector(".header__nav").classList.toggle("header__nav_open")
+      document.body.classList.toggle("body_lock")
     }
 
     // header search form mobile
@@ -101,7 +102,46 @@ window.onload = function() {
     if (targetEl.closest(".footer__col_list")) {
       targetEl.closest(".footer__col_list").classList.toggle("footer__col_list_open")
     }
+
+    // form's popup
+    if (targetEl.classList.contains("footer__popup-container") || targetEl.classList.contains("footer__popup-close")) {
+      targetEl.closest(".footer__popup").classList.remove("footer__popup_open");
+      document.body.classList.remove("body_lock")
+    }
+  
   }
+
+  const form = document.getElementById("footer-form");
+  const emailInputEl = form.querySelector(".col-footer__form-input");
+
+  emailInputEl.addEventListener("input", e => {
+    if (form.classList.contains("col-footer__form_error")) {
+      form.classList.remove("col-footer__form_error")
+    }
+  })
+  function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const emailValue = e.target.querySelector("input").value;
+
+    if (validateEmail(emailValue)) {
+      e.target.reset();
+      document.body.classList.add("body_lock");
+      document.querySelector(".footer__popup").classList.add("footer__popup_open")
+    } else {
+      let errorMessageEl = e.target.querySelector(".col-footer__form-error-message");
+      if (emailValue.trim === "") { 
+        errorMessageEl.innerHTML = "Enter a email"
+      } else {
+        errorMessageEl.innerHTML = "Email is not valid"
+      }
+      e.target.classList.add("col-footer__form_error")
+    }
+  })
 
   // Main slider
   new Swiper(".main-slider__slider .swiper", {
